@@ -1,14 +1,45 @@
 #!/bin/sh
 
-# Author: Marco Cesarato
+# Author:  Marco Cesarato
+# License: http://opensource.org/licenses/gpl-3.0.html GNU Public License
+# Link:    https://github.com/marcocesarato/Shell-BotKiller
 
-KillerBot() {
+BotKiller() {
     crontab -l | grep '192.99.142.226\|82.146.58.234\|83.220.169.247\|91.201.42.5' | crontab -r
     crontab -l | grep 'pastebin.com' | crontab -r
     crontab -l | grep 'gitee.com' | crontab -r
     crontab -l | grep '107.174.47.156' | crontab -r
     crontab -l | grep '83.220.169.24' | crontab -r
+    crontab -l | grep '89.33.193.10' | crontab -r
     crontab -l | grep '51.38.203.146' | crontab -r
+    crontab -l | grep '64.235.56.228' | crontab -r
+    crontab -l | grep '23.234.50.12' | crontab -r
+    crontab -l | grep '61.160.194.62' | crontab -r
+    crontab -l | grep '61.160.221.139' | crontab -r
+    crontab -l | grep '103.105.144.172' | crontab -r
+    crontab -l | grep '108.171.252.20' | crontab -r
+    crontab -l | grep '113.105.144.172' | crontab -r
+    crontab -l | grep '183.60.202.75' | crontab -r
+    crontab -l | grep '222.186.15.92' | crontab -r
+    crontab -l | grep '222.186.30.247' | crontab -r
+    crontab -l | grep '222.186.34.177' | crontab -r
+    crontab -l | grep '222.186.21.106' | crontab -r
+    crontab -l | grep '222.186.190.233' | crontab -r
+    crontab -l | grep '222.186.56.15' | crontab -r
+    crontab -l | grep '111.74.239.61' | crontab -r
+    crontab -l | grep '198.15.216.27' | crontab -r
+    crontab -l | grep '61.160.221.139' | crontab -r
+    crontab -l | grep '222.186.30.247' | crontab -r
+    crontab -l | grep '222.186.34.177' | crontab -r
+    crontab -l | grep '222.186.31.248' | crontab -r
+    crontab -l | grep '114.215.149.148' | crontab -r
+    crontab -l | grep 'www.zhimingge.in' | crontab -r
+    crontab -l | grep 'yy.zhimingge.in' | crontab -r
+    crontab -l | grep 'www.3xdk.com' | crontab -r
+    crontab -l | grep 'fk.appledoesnt.com' | crontab -r
+    crontab -l | grep 'www.3xdk.com' | crontab -r
+    crontab -l | grep 'K.Mardam-Bey' | crontab -r
+    crontab -l | grep 'Khaled Mardam-Bey' | crontab -r
     crontab -l | grep 'mr.sh' | crontab -r
     crontab -l | grep '2mr.sh' | crontab -r
     crontab -l | grep 'cr5.sh' | crontab -r
@@ -71,6 +102,33 @@ KillerBot() {
     ps aux | grep -v grep | grep "158.69.133.18:8220"| awk '{print $2}'| xargs kill -9
     ps aux | grep -v grep | grep "/tmp/java" | awk '{print $2}'| xargs kill -9
     ps aux | grep -v grep | grep 'gitee.com'| awk '{print $2}' | xargs kill -9
+    ps aux | grep -v grep | grep '89.33.193.10'| awk '{print $2}' | xargs kill -9
+    ps aux | grep -v grep | grep '23.234.50.12'| awk '{print $2}' | xargs kill -9
+    ps aux | grep -v grep | grep '61.160.194.62'| awk '{print $2}' | xargs kill -9
+    ps aux | grep -v grep | grep '61.160.221.139'| awk '{print $2}' | xargs kill -9
+    ps aux | grep -v grep | grep '103.105.144.172'| awk '{print $2}' | xargs kill -9
+    ps aux | grep -v grep | grep '108.171.252.20'| awk '{print $2}' | xargs kill -9
+    ps aux | grep -v grep | grep '113.105.144.172'| awk '{print $2}' | xargs kill -9
+    ps aux | grep -v grep | grep '183.60.202.75'| awk '{print $2}' | xargs kill -9
+    ps aux | grep -v grep | grep '222.186.15.92'| awk '{print $2}' | xargs kill -9
+    ps aux | grep -v grep | grep '222.186.30.247'| awk '{print $2}' | xargs kill -9
+    ps aux | grep -v grep | grep '222.186.34.177'| awk '{print $2}' | xargs kill -9
+    ps aux | grep -v grep | grep '222.186.21.106'| awk '{print $2}' | xargs kill -9
+    ps aux | grep -v grep | grep '222.186.190.233'| awk '{print $2}' | xargs kill -9
+    ps aux | grep -v grep | grep '222.186.56.15'| awk '{print $2}' | xargs kill -9
+    ps aux | grep -v grep | grep '111.74.239.61'| awk '{print $2}' | xargs kill -9
+    ps aux | grep -v grep | grep '198.15.216.27'| awk '{print $2}' | xargs kill -9
+    ps aux | grep -v grep | grep '61.160.221.139'| awk '{print $2}' | xargs kill -9
+    ps aux | grep -v grep | grep '222.186.30.247'| awk '{print $2}' | xargs kill -9
+    ps aux | grep -v grep | grep '222.186.34.177'| awk '{print $2}' | xargs kill -9
+    ps aux | grep -v grep | grep '222.186.31.248'| awk '{print $2}' | xargs kill -9
+    ps aux | grep -v grep | grep '114.215.149.148'| awk '{print $2}' | xargs kill -9
+    ps aux | grep -v grep | grep 'www.zhimingge.in'| awk '{print $2}' | xargs kill -9
+    ps aux | grep -v grep | grep 'yy.zhimingge.in'| awk '{print $2}' | xargs kill -9
+    ps aux | grep -v grep | grep 'www.3xdk.com'| awk '{print $2}' | xargs kill -9
+    ps aux | grep -v grep | grep 'fk.appledoesnt.com'| awk '{print $2}' | xargs kill -9
+    ps aux | grep -v grep | grep 'K.Mardam-Bey'| awk '{print $2}' | xargs kill -9
+    ps aux | grep -v grep | grep 'Khaled Mardam-Bey'| awk '{print $2}' | xargs kill -9
     ps aux | grep -v grep | grep '/tmp/java' | awk '{print $2}'| xargs kill -9
     ps aux | grep -v grep | grep '104.248.4.162'| awk '{print $2}' | xargs kill -9
     ps aux | grep -v grep | grep '89.35.39.78'| awk '{print $2}' | xargs kill -9
@@ -458,6 +516,6 @@ KillerBot() {
 
 
 while true; do
-    KillerBot
+    BotKiller
     sleep 1;
 done
