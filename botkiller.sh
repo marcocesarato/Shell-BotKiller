@@ -5,6 +5,9 @@
 # Link:    https://github.com/marcocesarato/Shell-BotKiller
 
 BotKiller() {
+
+    # Check cron jobs
+
     crontab -l | grep '192.99.142.226\|82.146.58.234\|83.220.169.247\|91.201.42.5' | crontab -r
     crontab -l | grep 'pastebin.com' | crontab -r
     crontab -l | grep 'gitee.com' | crontab -r
@@ -44,6 +47,9 @@ BotKiller() {
     crontab -l | grep '2mr.sh' | crontab -r
     crontab -l | grep 'cr5.sh' | crontab -r
     crontab -l | grep 'logo9.jpg' | crontab -r
+
+    # Check and kill processes
+
     ps aux | grep '192.99.142.226\|82.146.58.234\|83.220.169.247\|51.68.173.240\|91.201.42.5' | awk '{print $2}' | xargs kill -9
     ps aux | grep -v grep | grep 'kworkerdssx -c\' | awk '{print $2}' | xargs kill -9
     ps aux | grep -v grep | grep '/tmp/dl' | awk '{print $2}' | xargs kill -9
@@ -213,8 +219,10 @@ BotKiller() {
     ps auxf| grep -v grep | grep "xmrpool.eu" | awk '{print $2}'|xargs kill -9
     ps auxf| grep xiaoyao | awk '{print $2}'|xargs kill -9
     ps auxf| grep xiaoxue | awk '{print $2}'|xargs kill -9
+
     netstat -antp | grep '46.243.253.15' | grep 'ESTABLISHED\|SYN_SENT' | awk '{print $7}' | sed -e "s/\/.*//g" | xargs kill -9
     netstat -antp | grep '176.31.6.16' | grep 'ESTABLISHED\|SYN_SENT' | awk '{print $7}' | sed -e "s/\/.*//g" | xargs kill -9
+
     pgrep -f monerohash|xargs kill -9
     pgrep -f L2Jpbi9iYXN|xargs kill -9
     pgrep -f xzpauectgr|xargs kill -9
@@ -276,6 +284,7 @@ BotKiller() {
     pgrep -f systemxlv|xargs kill -9
     pgrep -f watchbog|xargs kill -9
     pgrep -f OIcJi1m|xargs kill -9
+
     pkill -f biosetjenkins
     pkill -f Loopback
     pkill -f apaceha
@@ -348,6 +357,9 @@ BotKiller() {
     pkill -f crond64
     pkill -f sustse
     pkill -f vmlinuz
+
+    # Check readable files
+
     rm -rf /tmp/wc.conf
     rm -rf /tmp/sustse
     rm -rf /tmp/php
@@ -511,6 +523,12 @@ BotKiller() {
     touch /tmp/lok
     mkdir -p /tmp/khugepageds
     rm -rf /var/tmp/yum-confluence-*
+
+    # Kill zombie processes
+
+    for pid in $(ps axo pid=,stat= | awk '$2~/^Z/ { print $1 }'); do
+         kill -9 $pid;
+    done
 
 };
 
