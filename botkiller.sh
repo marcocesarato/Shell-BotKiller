@@ -1,5 +1,4 @@
 #!/bin/sh
-
 # Author:  Marco Cesarato
 # License: http://opensource.org/licenses/gpl-3.0.html GNU Public License
 # Link:    https://github.com/marcocesarato/Shell-BotKiller
@@ -7,7 +6,6 @@
 BotKiller() {
 
     # Check cron jobs
-
     crontab -l | grep '192.99.142.226\|82.146.58.234\|83.220.169.247\|91.201.42.5' | crontab -r
     crontab -l | grep 'pastebin.com' | crontab -r
     crontab -l | grep 'gitee.com' | crontab -r
@@ -18,14 +16,11 @@ BotKiller() {
     crontab -l | grep '64.235.56.228' | crontab -r
     crontab -l | grep '23.234.50.12' | crontab -r
     crontab -l | grep '61.160.194.62' | crontab -r
-    crontab -l | grep '61.160.221.139' | crontab -r
     crontab -l | grep '103.105.144.172' | crontab -r
     crontab -l | grep '108.171.252.20' | crontab -r
     crontab -l | grep '113.105.144.172' | crontab -r
     crontab -l | grep '183.60.202.75' | crontab -r
     crontab -l | grep '222.186.15.92' | crontab -r
-    crontab -l | grep '222.186.30.247' | crontab -r
-    crontab -l | grep '222.186.34.177' | crontab -r
     crontab -l | grep '222.186.21.106' | crontab -r
     crontab -l | grep '222.186.190.233' | crontab -r
     crontab -l | grep '222.186.56.15' | crontab -r
@@ -36,9 +31,40 @@ BotKiller() {
     crontab -l | grep '222.186.34.177' | crontab -r
     crontab -l | grep '222.186.31.248' | crontab -r
     crontab -l | grep '114.215.149.148' | crontab -r
+    crontab -l | grep '185.234.218.9' | crontab -r
+    crontab -l | grep '193.112.246.211' | crontab -r
+    crontab -l | grep '185.99.133.75' | crontab -r
+    crontab -l | grep '185.10.120.123' | crontab -r
+    crontab -l | grep '185.172.65.80' | crontab -r
+    crontab -l | grep '184.69.211.6' | crontab -r
+    crontab -l | grep '149.129.133.222' | crontab -r
+    crontab -l | grep '112.118.155.15' | crontab -r
+    crontab -l | grep '112.78.137.50' | crontab -r
+    crontab -l | grep '103.10.62.174' | crontab -r
+    crontab -l | grep '104.168.158.113' | crontab -r
+    crontab -l | grep '104.168.170.48' | crontab -r
+    crontab -l | grep '104.168.211.236' | crontab -r
+    crontab -l | grep '66.79.176.200' | crontab -r
+    crontab -l | grep '93.113.108.146' | crontab -r
+    crontab -l | grep '95.179.215.180' | crontab -r
+    crontab -l | grep '198.12.156.218' | crontab -r
+    crontab -l | grep '190.152.71.46' | crontab -r
+    crontab -l | grep '216.155.152.169' | crontab -r
+    crontab -l | grep '91.232.125.211' | crontab -r
+    crontab -l | grep '203.129.203.6' | crontab -r
+    crontab -l | grep '158.69.195.70' | crontab -r
+    crontab -l | grep '47.74.43.251' | crontab -r
+    crontab -l | grep '185.99.13375' | crontab -r
+    crontab -l | grep '87.236.233.105' | crontab -r
+    crontab -l | grep '185.106.120.118' | crontab -r
+    crontab -l | grep '89.221.52.122' | crontab -r
+    crontab -l | grep '181.148.183.75' | crontab -r
+    crontab -l | grep '213.221.224.122' | crontab -r
+    crontab -l | grep '85.234.126.92' | crontab -r
+    crontab -l | grep '181.112.138.130' | crontab -r
+    crontab -l | grep '104.168.158.114' | crontab -r
     crontab -l | grep 'www.zhimingge.in' | crontab -r
     crontab -l | grep 'yy.zhimingge.in' | crontab -r
-    crontab -l | grep 'www.3xdk.com' | crontab -r
     crontab -l | grep 'fk.appledoesnt.com' | crontab -r
     crontab -l | grep 'www.3xdk.com' | crontab -r
     crontab -l | grep 'K.Mardam-Bey' | crontab -r
@@ -49,7 +75,6 @@ BotKiller() {
     crontab -l | grep 'logo9.jpg' | crontab -r
 
     # Check and kill processes
-
     ps aux | grep '192.99.142.226\|82.146.58.234\|83.220.169.247\|51.68.173.240\|91.201.42.5' | awk '{print $2}' | xargs kill -9
     ps aux | grep -v grep | grep 'kworkerdssx -c\' | awk '{print $2}' | xargs kill -9
     ps aux | grep -v grep | grep '/tmp/dl' | awk '{print $2}' | xargs kill -9
@@ -71,7 +96,6 @@ BotKiller() {
     ps aux | grep -v grep | grep 'I0r8Jyyt'| awk '{print $2}' | xargs kill -9
     ps aux | grep -v grep | grep 'AgdgACUD'| awk '{print $2}' | xargs kill -9
     ps aux | grep -v grep | grep 'uiZvwxG8'| awk '{print $2}' | xargs kill -9
-    ps aux | grep -v grep | grep 'hahwNEdB'| awk '{print $2}' | xargs kill -9
     ps aux | grep -v grep | grep 'BtwXn5qH'| awk '{print $2}' | xargs kill -9
     ps aux | grep -v grep | grep '3XEzey2T'| awk '{print $2}' | xargs kill -9
     ps aux | grep -v grep | grep 't2tKrCSZ'| awk '{print $2}' | xargs kill -9
@@ -86,7 +110,6 @@ BotKiller() {
     ps aux | grep -v grep | grep 'http_0xCC032'| awk '{print $2}' | xargs kill -9
     ps aux | grep -v grep | grep 'http_0xCC033'| awk '{print $2}' | xargs kill -9
     ps aux | grep -v grep | grep "C4iLM4L"| awk '{print $2}'| xargs kill -9
-    ps aux | grep -v grep | grep 'aziplcr72qjhzvin'| awk '{print $2}' | xargs kill -9
     ps aux | grep -v grep | awk '{ if(substr($11,1,2)=="./" &amp;&amp; substr($12,1,2)=="./") print $2 }' | xargs kill -9
     ps aux | grep -v grep | grep '/boot/vmlinuz'| awk '{print $2}' | xargs kill -9
     ps aux | grep -v grep | grep "i4b503a52cc5"| awk '{print $2}'|xargs kill -9
@@ -111,14 +134,11 @@ BotKiller() {
     ps aux | grep -v grep | grep '89.33.193.10'| awk '{print $2}' | xargs kill -9
     ps aux | grep -v grep | grep '23.234.50.12'| awk '{print $2}' | xargs kill -9
     ps aux | grep -v grep | grep '61.160.194.62'| awk '{print $2}' | xargs kill -9
-    ps aux | grep -v grep | grep '61.160.221.139'| awk '{print $2}' | xargs kill -9
     ps aux | grep -v grep | grep '103.105.144.172'| awk '{print $2}' | xargs kill -9
     ps aux | grep -v grep | grep '108.171.252.20'| awk '{print $2}' | xargs kill -9
     ps aux | grep -v grep | grep '113.105.144.172'| awk '{print $2}' | xargs kill -9
     ps aux | grep -v grep | grep '183.60.202.75'| awk '{print $2}' | xargs kill -9
     ps aux | grep -v grep | grep '222.186.15.92'| awk '{print $2}' | xargs kill -9
-    ps aux | grep -v grep | grep '222.186.30.247'| awk '{print $2}' | xargs kill -9
-    ps aux | grep -v grep | grep '222.186.34.177'| awk '{print $2}' | xargs kill -9
     ps aux | grep -v grep | grep '222.186.21.106'| awk '{print $2}' | xargs kill -9
     ps aux | grep -v grep | grep '222.186.190.233'| awk '{print $2}' | xargs kill -9
     ps aux | grep -v grep | grep '222.186.56.15'| awk '{print $2}' | xargs kill -9
@@ -129,6 +149,38 @@ BotKiller() {
     ps aux | grep -v grep | grep '222.186.34.177'| awk '{print $2}' | xargs kill -9
     ps aux | grep -v grep | grep '222.186.31.248'| awk '{print $2}' | xargs kill -9
     ps aux | grep -v grep | grep '114.215.149.148'| awk '{print $2}' | xargs kill -9
+    ps aux | grep -v grep | grep '185.234.218.9'| awk '{print $2}' | xargs kill -9
+    ps aux | grep -v grep | grep '193.112.246.211'| awk '{print $2}' | xargs kill -9
+    ps aux | grep -v grep | grep '185.99.133.75'| awk '{print $2}' | xargs kill -9
+    ps aux | grep -v grep | grep '185.10.120.123'| awk '{print $2}' | xargs kill -9
+    ps aux | grep -v grep | grep '185.172.65.80'| awk '{print $2}' | xargs kill -9
+    ps aux | grep -v grep | grep '184.69.211.6'| awk '{print $2}' | xargs kill -9
+    ps aux | grep -v grep | grep '149.129.133.222'| awk '{print $2}' | xargs kill -9
+    ps aux | grep -v grep | grep '112.118.155.15'| awk '{print $2}' | xargs kill -9
+    ps aux | grep -v grep | grep '112.78.137.50'| awk '{print $2}' | xargs kill -9
+    ps aux | grep -v grep | grep '103.10.62.174'| awk '{print $2}' | xargs kill -9
+    ps aux | grep -v grep | grep '104.168.158.113'| awk '{print $2}' | xargs kill -9
+    ps aux | grep -v grep | grep '104.168.170.48'| awk '{print $2}' | xargs kill -9
+    ps aux | grep -v grep | grep '104.168.211.236'| awk '{print $2}' | xargs kill -9
+    ps aux | grep -v grep | grep '66.79.176.200'| awk '{print $2}' | xargs kill -9
+    ps aux | grep -v grep | grep '93.113.108.146'| awk '{print $2}' | xargs kill -9
+    ps aux | grep -v grep | grep '95.179.215.180'| awk '{print $2}' | xargs kill -9
+    ps aux | grep -v grep | grep '198.12.156.218'| awk '{print $2}' | xargs kill -9
+    ps aux | grep -v grep | grep '190.152.71.46'| awk '{print $2}' | xargs kill -9
+    ps aux | grep -v grep | grep '216.155.152.169'| awk '{print $2}' | xargs kill -9
+    ps aux | grep -v grep | grep '91.232.125.211'| awk '{print $2}' | xargs kill -9
+    ps aux | grep -v grep | grep '203.129.203.6'| awk '{print $2}' | xargs kill -9
+    ps aux | grep -v grep | grep '158.69.195.70'| awk '{print $2}' | xargs kill -9
+    ps aux | grep -v grep | grep '47.74.43.251'| awk '{print $2}' | xargs kill -9
+    ps aux | grep -v grep | grep '185.99.13375'| awk '{print $2}' | xargs kill -9
+    ps aux | grep -v grep | grep '87.236.233.105'| awk '{print $2}' | xargs kill -9
+    ps aux | grep -v grep | grep '185.106.120.118'| awk '{print $2}' | xargs kill -9
+    ps aux | grep -v grep | grep '89.221.52.122'| awk '{print $2}' | xargs kill -9
+    ps aux | grep -v grep | grep '181.148.183.75'| awk '{print $2}' | xargs kill -9
+    ps aux | grep -v grep | grep '213.221.224.122'| awk '{print $2}' | xargs kill -9
+    ps aux | grep -v grep | grep '85.234.126.92'| awk '{print $2}' | xargs kill -9
+    ps aux | grep -v grep | grep '181.112.138.130'| awk '{print $2}' | xargs kill -9
+    ps aux | grep -v grep | grep '104.168.158.114'| awk '{print $2}' | xargs kill -9
     ps aux | grep -v grep | grep 'www.zhimingge.in'| awk '{print $2}' | xargs kill -9
     ps aux | grep -v grep | grep 'yy.zhimingge.in'| awk '{print $2}' | xargs kill -9
     ps aux | grep -v grep | grep 'www.3xdk.com'| awk '{print $2}' | xargs kill -9
@@ -152,7 +204,6 @@ BotKiller() {
     ps aux | grep -v grep | grep -v aux | grep " ps"| awk '{print $2}'| xargs kill -9
     ps aux | grep -v grep | grep "sync_supers" | cut -c 9-15 | xargs kill -9
     ps aux | grep -v grep | grep "cpuset" | cut -c 9-15 | xargs kill -9
-    ps aux | grep -v grep | grep -v aux |grep "x]"| awk '{print $2}'| xargs kill -9
     ps aux | grep -v grep | grep -v aux |grep "x]"| awk '{print $2}'| xargs kill -9
     ps aux | grep -v grep | grep -v aux |grep "sh] <"| awk '{print $2}'| xargs kill -9
     ps aux | grep -v grep | grep -v aux |grep " \[]"| awk '{print $2}'| xargs kill -9
@@ -285,10 +336,10 @@ BotKiller() {
     pgrep -f watchbog|xargs kill -9
     pgrep -f OIcJi1m|xargs kill -9
 
+    pkill -f zmcat
     pkill -f biosetjenkins
     pkill -f Loopback
     pkill -f apaceha
-    pkill -f cryptonight
     pkill -f stratum
     pkill -f mixnerdx
     pkill -f performedl
@@ -308,7 +359,6 @@ BotKiller() {
     pkill -f NXLAi
     pkill -f BI5zj
     pkill -f askdljlqw
-    pkill -f minerd
     pkill -f minergate
     pkill -f Guard.sh
     pkill -f ysaydh
@@ -321,7 +371,6 @@ BotKiller() {
     pkill -f kworker34
     pkill -f kw.sh
     pkill -f pro.sh
-    pkill -f polkitd
     pkill -f acpid
     pkill -f icb5o
     pkill -f nopxi
@@ -340,7 +389,6 @@ BotKiller() {
     pkill -f zigw
     pkill -f devtool
     pkill -f devtools
-    pkill -f systemctI
     pkill -f watchbog
     pkill -f cryptonight
     pkill -f sustes
@@ -359,7 +407,6 @@ BotKiller() {
     pkill -f vmlinuz
 
     # Check readable files
-
     rm -rf /tmp/wc.conf
     rm -rf /tmp/sustse
     rm -rf /tmp/php
@@ -385,8 +432,6 @@ BotKiller() {
     rm -rf /tmp/systemctI
     rm -rf /tmp/.abc
     rm -rf /tmp/osw.hb
-    rm -rf /tmp/.tmpleve
-    rm -rf /tmp/.tmpnewzz
     rm -rf /tmp/.java
     rm -rf /tmp/.omed
     rm -rf /tmp/.tmpc
@@ -414,20 +459,16 @@ BotKiller() {
     rm -rf /tmp/3lmigMo
     rm -rf /tmp/am8jmBP
     rm -rf /tmp/tmp.txt
-    rm -rf /tmp/baby
     rm -rf /tmp/.lib
     rm -rf /tmp/systemd
     rm -rf /tmp/lib.tar.gz
     rm -rf /tmp/baby
-    rm -rf /tmp/java
-    rm -rf /tmp/j2.conf
     rm -rf /tmp/.mynews1234
     rm -rf /tmp/a3e12d
     rm -rf /tmp/.pt
     rm -rf /tmp/.pt.tgz
     rm -rf /tmp/.pt.tgz.1
     rm -rf /tmp/go
-    rm -rf /tmp/java
     rm -rf /tmp/j2.conf
     rm -rf /tmp/.tmpnewasss
     rm -rf /tmp/java
@@ -441,22 +482,14 @@ BotKiller() {
     rm -rf /tmp/.p
     rm -rf /tmp/runtime2.sh
     rm -rf /tmp/runtime.sh
-    rm -f /usr/sbin/kerberods
-    rm -f /usr/sbin/kthrotlds
-    rm -f /usr/sbin/kintegrityds
-    rm -f /usr/sbin/kpsmouseds
     rm -f /etc/rc.d/init.d/kerberods
     rm -f /etc/init.d/netdns
-    rm -f /etc/rc.d/init.d/kthrotlds
     rm -f /etc/rc.d/init.d/kpsmouseds
     rm -f /etc/rc.d/init.d/kintegrityds
     rm -rf /dev/shm/z3.sh
     rm -rf /dev/shm/z2.sh
     rm -rf /dev/shm/.scr
     rm -rf /dev/shm/.kerberods
-    rm -f /etc/ld.so.preload
-    rm -f /usr/local/lib/libioset.so
-    chattr -i /etc/ld.so.preload
     rm -f /etc/ld.so.preload
     rm -f /usr/local/lib/libioset.so
     rm -rf /tmp/watchdogs
@@ -482,17 +515,24 @@ BotKiller() {
     rm -f /usr/sbin/kthrotlds
     rm -f /usr/sbin/kintegrityds
     rm -f /usr/sbin/kpsmouseds
-    rm /opt/atlassian/confluence/bin/1.sh
-    rm /opt/atlassian/confluence/bin/1.sh.1
-    rm /opt/atlassian/confluence/bin/1.sh.2
-    rm /opt/atlassian/confluence/bin/1.sh.3
-    rm /opt/atlassian/confluence/bin/3.sh
-    rm /opt/atlassian/confluence/bin/3.sh.1
-    rm /opt/atlassian/confluence/bin/3.sh.2
-    rm /opt/atlassian/confluence/bin/3.sh.3
+    rm -rf /opt/zimbra/log/zmswatch
+    rm -rf /opt/zimbra/log/zmswatch.sh
+    rm -rf /opt/zimbra/log/.editorinfo
+    rm -rf /opt/zimbra/log/.editorinfo–*
+    rm -rf /opt/zimbra/jetty-distribution-9.1.5.v20140505/webapps/zimbra/portals/example/static.jsp
+    rm -rf /tmp/.cache/.ntp
+    rm -rf /tmp/.cache/.kthrotlds
+    rm -rf /var/tmp/zmcat
+    rm -rf /opt/atlassian/confluence/bin/1.sh
+    rm -rf /opt/atlassian/confluence/bin/1.sh.1
+    rm -rf /opt/atlassian/confluence/bin/1.sh.2
+    rm -rf /opt/atlassian/confluence/bin/1.sh.3
+    rm -rf /opt/atlassian/confluence/bin/3.sh
+    rm -rf /opt/atlassian/confluence/bin/3.sh.1
+    rm -rf /opt/atlassian/confluence/bin/3.sh.2
+    rm -rf /opt/atlassian/confluence/bin/3.sh.3
     rm -rf /var/tmp/f41
     rm -rf /var/tmp/2.sh
-    rm -rf /var/tmp/config.json
     rm -rf /var/tmp/xmrig
     rm -rf /var/tmp/1.so
     rm -rf /var/tmp/kworkerds3
@@ -520,18 +560,27 @@ BotKiller() {
     rm -rf /var/tmp/conf.n
     rm -r /var/tmp/lib
     rm -r /var/tmp/.lib
-    touch /tmp/lok
-    mkdir -p /tmp/khugepageds
     rm -rf /var/tmp/yum-confluence-*
 
-    # Kill zombie processes
+    touch /tmp/lok
+    mkdir -p /tmp/khugepageds
 
+    chattr -i /etc/ld.so.preload
+
+    # Zimbra permission
+    touch /opt/zimbra/log/zmswatch
+    chattr +i /opt/zimbra/log/zmswatch
+
+    chmod -w /var/spool/cron/zimbra
+    chattr +i /var/spool/cron/zimbra
+
+    # Kill zombie processes
     for pid in $(ps axo pid=,stat= | awk '$2~/^Z/ { print $1 }'); do
-         kill -9 $pid;
+        kill -9 $pid;
     done
 
+    ps aux | grep ‘dblaunch’ | awk ‘{print $2}’
 };
-
 
 while true; do
     BotKiller
